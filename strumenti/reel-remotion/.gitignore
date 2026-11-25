@@ -1,0 +1,9 @@
+node_modules/
+out/
+models/
+public/audio/
+audio
+timing.json
+timeline.json
+score.json
+src/score.json
