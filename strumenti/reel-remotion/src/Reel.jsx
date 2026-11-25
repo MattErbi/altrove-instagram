@@ -21,7 +21,7 @@ export const Reel = () => {
             <AbsoluteFill style={{ background: def.bg, overflow: 'hidden' }}>
               <Camera sc={sc} nextEnter={S[i + 1]?.enter}>
                 <Comp sc={sc} />
-                <Captions sc={sc} dark={def.dark} />
+                <Captions sc={sc} dark={def.dark} glow={def.glow !== false} />
               </Camera>
             </AbsoluteFill>
           </Sequence>

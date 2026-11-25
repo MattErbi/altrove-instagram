@@ -1,437 +1,236 @@
 [
  {
   "id": "hook",
-  "vo": "Where does your holiday money really go?",
+  "vo": "€225 million. Borrowed. For holidays.",
+  "say": "Two hundred twenty-five million euros. Borrowed. For holidays.",
   "accent": [
-   "really"
+   "Borrowed."
   ],
-  "lead": 0.12,
-  "tail": 0.22,
-  "enter": "zoom",
+  "lead": 0.08,
+  "tail": 0.2,
+  "enter": "none",
   "cues": [
    {
-    "name": "land",
-    "t": 0.42,
-    "sfx": "impact"
-   },
-   {
-    "name": "burst",
-    "t": 0.44,
-    "sfx": "coins"
-   },
-   {
-    "name": "q",
-    "t": 0.95,
-    "sfx": "pop"
-   }
-  ]
- },
- {
-  "id": "agency",
-  "vo": "With a traditional agency, not every euro goes into your trip.",
-  "accent": [
-   "every",
-   "euro"
-  ],
-  "enter": "whip",
-  "cues": [
-   {
-    "name": "you",
-    "t": 0.1,
-    "sfx": "pop"
-   },
-   {
-    "name": "ag",
-    "t": 0.38,
-    "sfx": "pop"
-   },
-   {
-    "name": "s0",
-    "t": 0.6,
-    "sfx": "pop2"
-   },
-   {
-    "name": "s1",
-    "t": 0.7,
-    "sfx": "pop2"
-   },
-   {
-    "name": "s2",
-    "t": 0.8,
-    "sfx": "pop2"
-   },
-   {
-    "name": "flow",
-    "t": 0.9
-   },
-   {
-    "name": "fee",
-    "word": "not",
-    "offset": -0.1,
-    "sfx": "pop"
-   },
-   {
-    "name": "drop",
-    "word": "euro",
-    "offset": 0.1,
-    "sfx": "coins"
-   }
-  ]
- },
- {
-  "id": "commission",
-  "vo": "In Italy, hotels pay agencies an eight to fifteen percent commission, already in your price.",
-  "accent": [
-   "fifteen",
-   "percent"
-  ],
-  "tail": 0.3,
-  "enter": "zoom",
-  "cues": [
-   {
-    "name": "tag",
-    "t": 0.1,
-    "sfx": "pop"
-   },
-   {
-    "name": "count",
-    "word": "eight",
-    "offset": -0.15,
-    "sfx": "tick"
-   },
-   {
-    "name": "land",
-    "word": "fifteen",
-    "offset": -0.05,
-    "sfx": "impact"
-   },
-   {
-    "name": "bar",
-    "word": "commission",
-    "offset": -0.1,
-    "sfx": "whoosh_s"
-   },
-   {
-    "name": "cut",
-    "word": "already",
-    "offset": -0.1,
-    "sfx": "pop"
-   }
-  ]
- },
- {
-  "id": "extras",
-  "vo": "Then add booking fees, often fifty euros or more.",
-  "accent": [
-   "fifty",
-   "euros"
-  ],
-  "enter": "whip",
-  "cues": [
-   {
-    "name": "paper",
+    "name": "flip",
     "t": 0.0,
-    "sfx": "slide"
+    "sfx": "rattleL"
    },
    {
-    "name": "r0",
-    "t": 0.2,
-    "sfx": "tick"
-   },
-   {
-    "name": "r1",
-    "t": 0.32,
-    "sfx": "tick"
-   },
-   {
-    "name": "r2",
-    "t": 0.44,
-    "sfx": "tick"
-   },
-   {
-    "name": "fee",
-    "word": "booking",
-    "offset": -0.1,
-    "sfx": "pop"
+    "name": "land",
+    "word": "million.",
+    "offset": -0.12,
+    "sfx": "impact"
    },
    {
     "name": "stamp",
-    "word": "fifty",
+    "word": "Borrowed.",
+    "offset": -0.04,
+    "sfx": "stamp"
+   },
+   {
+    "name": "hol",
+    "word": "For",
+    "offset": -0.2,
+    "sfx": "rattle",
+    "gain": 0.7
+   },
+   {
+    "name": "plane",
+    "word": "holidays.",
+    "offset": 0.1,
+    "sfx": "whoosh_s"
+   }
+  ]
+ },
+ {
+  "id": "italy",
+  "vo": "In Italy, in just six months.",
+  "accent": [
+   "six",
+   "months."
+  ],
+  "lead": 0.12,
+  "tail": 0.25,
+  "enter": "whip",
+  "cues": [
+   {
+    "name": "map",
+    "t": 0.0
+   },
+   {
+    "name": "lit",
+    "word": "Italy,",
+    "offset": -0.1,
+    "sfx": "ding"
+   },
+   {
+    "name": "chip",
+    "word": "six",
+    "offset": -0.1,
+    "sfx": "pop"
+   }
+  ]
+ },
+ {
+  "id": "trip",
+  "vo": "The average summer holiday? €917 per person.",
+  "say": "The average summer holiday? Nine hundred seventeen euros per person.",
+  "accent": [
+   "€917"
+  ],
+  "lead": 0.12,
+  "tail": 0.3,
+  "enter": "whip",
+  "cues": [
+   {
+    "name": "pass",
+    "t": 0.05,
+    "sfx": "slide"
+   },
+   {
+    "name": "fill",
+    "word": "summer",
     "offset": -0.05,
+    "sfx": "tick"
+   },
+   {
+    "name": "count",
+    "word": "€917",
+    "offset": -0.3
+   },
+   {
+    "name": "land",
+    "word": "per",
+    "offset": -0.08,
+    "sfx": "coins"
+   },
+   {
+    "name": "stamp",
+    "word": "person.",
+    "offset": 0.05,
     "sfx": "stamp"
    }
   ]
  },
  {
-  "id": "diy",
-  "vo": "Doing it yourself? Hours of tabs and price checks.",
+  "id": "fees",
+  "vo": "Every euro should land in your trip. Not in the fees around it.",
   "accent": [
-   "Hours"
+   "trip.",
+   "Not"
   ],
-  "enter": "zoom",
-  "cues": [
-   {
-    "name": "w0",
-    "t": 0.08,
-    "sfx": "pop"
-   },
-   {
-    "name": "w1",
-    "t": 0.24,
-    "sfx": "pop"
-   },
-   {
-    "name": "w2",
-    "t": 0.38,
-    "sfx": "pop"
-   },
-   {
-    "name": "w3",
-    "t": 0.5,
-    "sfx": "pop"
-   },
-   {
-    "name": "w4",
-    "t": 0.6,
-    "sfx": "pop"
-   },
-   {
-    "name": "w5",
-    "t": 0.7,
-    "sfx": "pop"
-   },
-   {
-    "name": "w6",
-    "t": 0.79,
-    "sfx": "pop"
-   },
-   {
-    "name": "w7",
-    "t": 0.88,
-    "sfx": "pop"
-   },
-   {
-    "name": "w8",
-    "t": 0.96,
-    "sfx": "pop"
-   },
-   {
-    "name": "w9",
-    "t": 1.03,
-    "sfx": "pop"
-   },
-   {
-    "name": "w10",
-    "t": 1.1,
-    "sfx": "pop"
-   },
-   {
-    "name": "w11",
-    "t": 1.16,
-    "sfx": "pop"
-   },
-   {
-    "name": "clock",
-    "word": "hours",
-    "offset": -0.1,
-    "sfx": "impact"
-   }
-  ]
- },
- {
-  "id": "meet",
-  "vo": "Meet Altrove.",
-  "accent": [
-   "Altrove."
-  ],
-  "lead": 0.2,
-  "tail": 0.45,
-  "caption": false,
-  "enter": "none",
-  "cues": [
-   {
-    "name": "wipe",
-    "t": 0.0,
-    "sfx": "whoosh"
-   },
-   {
-    "name": "logo",
-    "t": 0.22,
-    "sfx": "impact"
-   },
-   {
-    "name": "morph",
-    "t": 0.62,
-    "sfx": "sparkle"
-   },
-   {
-    "name": "word",
-    "t": 0.78,
-    "sfx": "pop"
-   }
-  ]
- },
- {
-  "id": "chat",
-  "vo": "One AI agent plans and books your whole trip, in one chat.",
-  "accent": [
-   "whole",
-   "trip,"
-  ],
+  "lead": 0.12,
+  "tail": 0.65,
   "enter": "whip",
   "cues": [
    {
-    "name": "phone",
-    "t": 0.0,
-    "sfx": "slide"
-   },
-   {
-    "name": "user",
-    "t": 0.35,
+    "name": "case",
+    "t": 0.02,
     "sfx": "pop"
    },
    {
-    "name": "typing",
-    "t": 0.65
+    "name": "flow",
+    "t": 0.3,
+    "sfx": "coins"
    },
    {
-    "name": "agent",
-    "t": 1.25,
-    "sfx": "pop"
+    "name": "tags",
+    "word": "Not",
+    "offset": -0.55,
+    "sfx": "pop2"
    },
    {
-    "name": "c0",
-    "t": 1.45,
-    "sfx": "ding"
-   },
-   {
-    "name": "c1",
-    "t": 1.8,
-    "sfx": "ding"
-   },
-   {
-    "name": "c2",
-    "t": 2.15,
-    "sfx": "ding"
-   }
-  ]
- },
- {
-  "id": "total",
-  "vo": "Full total from the start. You decide everything.",
-  "accent": [
-   "total",
-   "decide"
-  ],
-  "enter": "zoom",
-  "cues": [
-   {
-    "name": "card",
-    "t": 0.0,
-    "sfx": "pop"
-   },
-   {
-    "name": "r0",
-    "t": 0.06,
-    "sfx": "tick"
-   },
-   {
-    "name": "r1",
-    "t": 0.14,
-    "sfx": "tick"
-   },
-   {
-    "name": "r2",
-    "t": 0.22,
-    "sfx": "tick"
-   },
-   {
-    "name": "total",
-    "word": "total",
-    "offset": -0.1,
-    "sfx": "impact"
-   },
-   {
-    "name": "t0",
-    "word": "decide",
-    "offset": -0.25,
-    "sfx": "toggle"
-   },
-   {
-    "name": "t1",
-    "word": "decide",
+    "name": "cut",
+    "word": "fees",
     "offset": -0.05,
-    "sfx": "toggle"
+    "sfx": "stamp"
    },
    {
-    "name": "t2",
-    "word": "decide",
+    "name": "close",
+    "word": "it.",
     "offset": 0.15,
     "sfx": "toggle"
    }
   ]
  },
  {
-  "id": "save",
-  "vo": "Less money on extras. Less time planning. More trip.",
+  "id": "altrove",
+  "vo": "Altrove plans and books your whole trip, with one clear total.",
   "accent": [
-   "More",
-   "trip."
+   "whole",
+   "trip,",
+   "total."
   ],
+  "lead": 0.12,
   "tail": 0.45,
-  "caption": false,
   "enter": "whip",
   "cues": [
    {
-    "name": "l0",
-    "word": "less",
-    "n": 0,
-    "offset": -0.08,
-    "sfx": "impact"
+    "name": "map",
+    "t": 0.0
    },
    {
-    "name": "l1",
-    "word": "less",
-    "n": 1,
-    "offset": -0.08,
-    "sfx": "impact"
+    "name": "routes",
+    "word": "plans",
+    "offset": -0.1,
+    "sfx": "whoosh_s"
    },
    {
-    "name": "l2",
-    "word": "more",
-    "offset": -0.08,
-    "sfx": "impact"
+    "name": "icons",
+    "word": "books",
+    "offset": -0.05,
+    "sfx": "pop"
+   },
+   {
+    "name": "card",
+    "word": "one",
+    "offset": -0.25,
+    "sfx": "slide"
+   },
+   {
+    "name": "check",
+    "word": "total.",
+    "offset": 0.05,
+    "sfx": "ding"
    }
   ]
  },
  {
   "id": "end",
   "vo": "Altrove. Coming soon.",
-  "accent": [
-   "soon."
-  ],
-  "tail": 1.9,
   "caption": false,
+  "lead": 0.35,
+  "tail": 1.6,
   "enter": "zoom",
   "cues": [
    {
-    "name": "logo",
-    "t": 0.1,
-    "sfx": "impact"
+    "name": "flip",
+    "t": 0.02,
+    "sfx": "rattle"
    },
    {
-    "name": "word",
-    "t": 0.35,
-    "sfx": "pop"
+    "name": "land1",
+    "word": "Altrove.",
+    "offset": 0.05,
+    "sfx": "toggle"
+   },
+   {
+    "name": "flip2",
+    "word": "Coming",
+    "offset": -0.3,
+    "sfx": "rattle",
+    "gain": 0.7
    },
    {
     "name": "soon",
-    "t": 0.95,
+    "word": "soon.",
+    "offset": 0.1,
     "sfx": "sparkle"
    },
    {
     "name": "handle",
-    "t": 1.4,
+    "word": "soon.",
+    "offset": 0.55,
     "sfx": "pop"
    }
   ]

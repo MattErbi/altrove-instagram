@@ -6,7 +6,7 @@ k = Kokoro(os.environ.get("MODELS","models") + "/kokoro-v1.0.onnx", os.environ.g
 S = json.load(open("script.json"))
 out = []
 for s in S:
-    a, sr = k.create(s["vo"], voice=voice, speed=speed, lang="en-us")
+    a, sr = k.create(s.get("say", s["vo"]), voice=voice, speed=speed, lang="en-us")
     a = np.asarray(a, dtype=np.float32)
     # trim leading/trailing silence
     thr = 0.01; idx = np.where(np.abs(a) > thr)[0]

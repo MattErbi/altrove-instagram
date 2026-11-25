@@ -19,9 +19,10 @@ const GENRE = process.argv[2] || 'afrobeats';
 for (const sc of score.scenes) voice.addMono(decode(path.join('public/audio', sc.id + '.wav')), sc.start + sc.lead, 1.0);
 
 // ---------- music: warm travel groove in F, quiet intro bar, drums from bar 1, soft outro ----------
-const clock = MU.makeClock({ bpm: 104 });
+const BPM = +(process.argv[3] || 104);
+const clock = MU.makeClock({ bpm: BPM });
 const bars = Math.ceil(DUR / clock.BAR) + 1;
-const prog = ['F', 'C', 'Dm', 'Bb'];
+const prog = (process.env.PROG || 'F,C,Dm,Bb').split(',');
 const { chords, chordAt } = MU.makeChords(clock, {
   F: { notes: ['A3', 'C4', 'F4'], bass: 'F2' }, C: { notes: ['G3', 'C4', 'E4'], bass: 'C2' },
   Dm: { notes: ['A3', 'D4', 'F4'], bass: 'D2' }, Bb: { notes: ['Bb3', 'D4', 'F4'], bass: 'Bb1' },
@@ -47,6 +48,12 @@ const S = {
   whoosh_s: [norm(I.noiseSweep(0.22, 1200, 5200, { q: 1, pink: true })), 0.35],
   sparkle: [K('glass_002'), 0.4],
 };
+// split-flap board rattle: the click sample repeated at irregular 25-45 ms steps, fading out
+const rattle = (dur) => { const c = K('click_002'), out = new Float32Array(Math.ceil((dur + 0.2) * SR)); let t = 0, i = 0;
+  while (t < dur) { const g = (0.55 + 0.45 * ((Math.sin(i * 12.9898) * 43758.5453) % 1 + 1) % 1) * Math.min(1, (dur - t) / 0.25 + 0.2); const o = Math.round(t * SR);
+    for (let j = 0; j < c.length && o + j < out.length; j++) out[o + j] += c[j] * g; t += 0.025 + 0.02 * (((Math.sin(i * 78.233) * 12345.678) % 1 + 1) % 1); i++; }
+  return out; };
+S.rattle = [rattle(0.6), 0.3]; S.rattleL = [rattle(1.35), 0.3];
 let ci = 0;
 for (const e of score.sfx) {
   if (e.k === 'sparkle') hook(e.t, [['F5', 0], ['A5', 0.09], ['C6', 0.18], ['F6', 0.27]]);
@@ -60,10 +67,11 @@ MIX.duck([drums, bass, pad, keys], voice, { depth: 0.62 });
 MIX.sidechain([pad, bass], kicks, { depth: 0.25 });
 const stems = { drums, bass, pad, keys, voice, fx, verb: reverb(verb, { room: 0.8, damp: 0.35 }) };
 const GAIN = { drums: 0.2, bass: 0.32, pad: 1.3, keys: 0.26, voice: 1.0, fx: 0.7, verb: 0.8 };
+const MUS = +(process.env.MUSIC || 1); for (const k of ['drums', 'bass', 'pad', 'keys']) GAIN[k] *= MUS; // MUSIC=0.7 -> music bed 3 dB quieter (dense genres like edm)
 fs.mkdirSync('out', { recursive: true });
 const mix = MIX.mixdown(stems, GAIN, { stemDir: process.env.STEMS ? 'out' : null });
 MIX.highpass(mix, 30);
 MIX.fadeOut(mix, DUR - 1.0, DUR);
 const M = MIX.master(mix, 0.8, undefined, { lufs: -14 });
 MIX.writeWav('out/mix.wav', mix);
-console.log(`out/mix.wav ${DUR.toFixed(2)}s, ${M.lufs !== undefined ? M.lufs.toFixed(1) + ' LUFS' : ''} (${GENRE}, 104 BPM)`);
+console.log(`out/mix.wav ${DUR.toFixed(2)}s, ${M.lufs !== undefined ? M.lufs.toFixed(1) + ' LUFS' : ''} (${GENRE}, ${BPM} BPM)`);

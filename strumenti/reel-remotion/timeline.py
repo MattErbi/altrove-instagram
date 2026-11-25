@@ -12,7 +12,9 @@ def gaps(a, sr):
         else: i += 1
     nz = np.where(~sil)[0]
     return out, nz[0]*0.01, (nz[-1]+1)*0.01
-def weight(x): return len(re.sub(r"[^A-Za-z0-9]", "", x)) + 2.0
+def weight(x):
+    d = len(re.sub(r"[^0-9]", "", x))  # numbers are spoken long: ~7 letters per digit
+    return len(re.sub(r"[^A-Za-z]", "", x)) + 7.0 * d + 2.0
 t = 0; out = []
 for s in T:
     a, sr = sf.read(f"audio/{s['id']}.wav"); a = a if a.ndim == 1 else a.mean(1)
