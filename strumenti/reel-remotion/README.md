@@ -24,7 +24,7 @@ mkdir -p public/audio && ln -sfn public/audio audio
    - Non usare `transition`/`animation` CSS: tutto deve dipendere da `t`.
    - Per effetti avanzati (transizioni @remotion/transitions, 3D, testo evidenziato, luci) leggi le skill del plugin Remotion se sono disponibili (`remotion-best-practices`, poi i suoi file in remotion-markup/).
 5. **Anteprime**: `node render.mjs stills 0,45,120,...` (numeri di fotogramma = secondi × 30) → out/frames/*.jpg. Guardale con Read: fotogramma 0 pieno, niente testo tagliato o sovrapposto, ogni scena nel suo momento più carico.
-6. **Video**: `node render.mjs video` (~1 fotogramma e mezzo al secondo: 10–15 minuti per 30 s) → out/video.mp4 muto.
+6. **Video**: `node render.mjs video` (circa 3 minuti per 30 s) → out/video.mp4 muto.
 7. **Suono**: `node audio.cjs afrobeats` → out/mix.wav (-14 LUFS). Generi: afrobeats (default, caldo e da viaggio), lofi (calmo), edm (energia), orchestral (epico), boombap. Ricetta e strumenti: `vendor/engine` + `references/music-cookbook.md` della skill animation-studio se disponibile. La musica si abbassa da sola sotto la voce.
 8. **Unisci**: `sh mux.sh out/reel.mp4`, poi guarda almeno 6 fotogrammi del file finale (ffmpeg -ss <t> -frames:v 1).
 
