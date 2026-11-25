@@ -81,7 +81,7 @@ export const Trip = ({ sc }) => {
   const k = pr(t, c.count, c.land); const v = Math.round(917 * eo(k)); const land = t > c.land ? 1 + 0.14 * Math.exp(-(t - c.land) * 8) * Math.cos((t - c.land) * 28) : 1;
   const sk = pr(t, c.stamp, c.stamp + 0.12); const st = t < c.stamp ? 0 : 2.2 - 1.2 * eo(sk);
   const [sx, sy] = shake(t, c.stamp, 14);
-  const bars = Array.from({ length: 34 }, (_, i) => 2 + Math.round(rnd(i + 40) * 6));
+  const bars = Array.from({ length: 28 }, (_, i) => 2 + Math.round(rnd(i + 40) * 3)); // barcode stays inside the stub (x 672-868)
   return (
     <AbsoluteFill>
       <Bokeh items={[[900, 220, 260, C.sun, 0.55], [140, 1100, 240, '#33A394', 0.6]]} />
@@ -100,10 +100,10 @@ export const Trip = ({ sc }) => {
         <Field x={672} y={116} label="PASSENGER" value="YOU" show={fill(0.35)} size={50} />
         <div style={{ position: 'absolute', left: 40, top: 240, fontFamily: F.sans, fontWeight: 800, fontSize: 23, letterSpacing: 3, color: C.tq, opacity: clamp(pr(t, c.count - 0.2, c.count)) }}>AVERAGE HOLIDAY · PER PERSON</div>
         <div style={{ position: 'absolute', left: 32, top: 268, fontFamily: F.brand, fontWeight: 800, fontSize: 168, letterSpacing: -6, color: C.ink, lineHeight: 1.1, scale: String(land), transformOrigin: '20% 60%', opacity: clamp(pr(t, c.count - 0.15, c.count + 0.05)) }}>€{v}</div>
-        <div style={{ position: 'absolute', left: 672, top: 262, display: 'flex', gap: 4, alignItems: 'flex-end', height: 150 }}>{bars.map((b, i) => <div key={i} style={{ width: b, height: 150 - (i % 5 === 0 ? 0 : 14), background: C.ink, marginRight: i % 3 ? 1 : 3 }} />)}</div>
+        <div style={{ position: 'absolute', left: 672, top: 262, width: 196, height: 150, overflow: 'hidden', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>{bars.map((b, i) => <div key={i} style={{ flex: 'none', width: b, height: 150 - (i % 5 === 0 ? 0 : 14), background: C.ink }} />)}</div>
         {t >= c.land && Array.from({ length: 8 }, (_, i) => { const d = t - c.land; const a = -Math.PI * (0.1 + 0.8 * (i / 7)); const vv = 700 + 260 * rnd(i + 2);
           return <div key={i} style={at(250 + Math.cos(a) * vv * d, 360 + Math.sin(a) * vv * d + 1500 * d * d, 0.55 + 0.3 * rnd(i), d * 500 * (rnd(i + 1) - 0.5), clamp((0.8 - d) / 0.25))}><Coin s={80} /></div>; })}
-        {t >= c.stamp && <div style={{ ...at(745, 352, st, -14, clamp(sk * 3) * 0.92), padding: '8px 22px 10px', border: `8px solid ${C.red}`, borderRadius: 18, fontFamily: F.brand, fontWeight: 800, fontSize: 44, letterSpacing: 2, color: C.red, background: 'rgba(251,248,243,.7)', whiteSpace: 'nowrap' }}>PER PERSON</div>}
+        {t >= c.stamp && <div style={{ ...at(752, 372, st, -14, clamp(sk * 3) * 0.92), padding: '10px 20px 12px', border: `8px solid ${C.red}`, borderRadius: 18, fontFamily: F.brand, fontWeight: 800, fontSize: 38, lineHeight: 1.08, letterSpacing: 2, color: C.red, background: 'rgba(251,248,243,.75)', textAlign: 'center', whiteSpace: 'nowrap' }}><div>PER</div><div>PERSON</div></div>}
       </div>
       <div style={srcStyle(clamp(pr(t, c.land, c.land + 0.3)))}>Italy · Summer 2026 · Source: Tecnè for Federalberghi</div>
     </AbsoluteFill>
